@@ -46,9 +46,9 @@
         // const container = React.createElement("div", null, [Title, Button])
         
         function App() { 
-            const [counter, modifier] = React.useState(0);
+            const [counter, setCounter] = React.useState(0);
             const onClick = () => {
-                modifier(counter+1);
+                setCounter((current) => current + 1);
             }
             return (
                 <div>
