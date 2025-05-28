@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.getElementById("root");
+
+        /*
+        // #Method 1. createElement
+
+        const h3 = React.createElement(
+            "h3", {
+                id: "title",
+                onMouseEnter: () => console.log("mouse enter"),
+            }, "Hello, I'm a span!"
+        );
+
+        const btn = React.createElement(
+            "button", {
+                style: {
+                    backgroundColor: "tomato",
+                },
+                onClick: () => console.log("I'm clicked!"),
+            }, "Click me"
+        );
+
+        */
+
+        // #Method 2. JSX - The most commonly used nowadays -> Babel(interpreter)
+        function Title() {
+            return (
+                <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+                    Hello, I'm a span!
+                </h3>
+            ); 
+        }
+
+        const Button = () => (
+            <button style={{backgroundColor: "tomato"}} 
+                    onClick={() => console.log("I'm clicked!")}>
+                Click me
+            </button>
+        );
+       
+        // const container = React.createElement("div", null, [Title, Button])
+        
+        const Container = (
+            <div>
+                <Title />
+                <Button />
+            </div>
+        );
+        ReactDOM.render(Container, root);
+    </script>
+</html>
